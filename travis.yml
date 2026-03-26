@@ -1,0 +1,18 @@
+language: java
+jdk:
+  - openjdk11
+
+addons:
+  sonarcloud:
+    organization: "YOUR_ORG_KEY"
+    token:
+      secure: $SONAR_TOKEN
+
+script:
+  - mvn verify sonar:sonar \
+    -Dsonar.projectKey=YOUR_PROJECT_KEY \
+    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
