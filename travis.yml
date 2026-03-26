@@ -4,13 +4,13 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "YOUR_ORG_KEY"
+    organization: "mafeozik"
     token:
       secure: $SONAR_TOKEN
 
 script:
-  - mvn verify sonar:sonar \
-    -Dsonar.projectKey=YOUR_PROJECT_KEY \
+  - mvn verify sonar:sonar
+    -Dsonar.projectKey=mafeozik_sonar-demo
     -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
 cache:
