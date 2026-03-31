@@ -10,8 +10,8 @@ addons:
 
 script:
   - mvn verify sonar:sonar
-    -Dsonar.projectKey=mafeozik_sonar-demo
-    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+      -Dsonar.projectKey=mafeozik_sonar-demo
+      -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
 cache:
   directories:
