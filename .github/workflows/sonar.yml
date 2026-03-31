@@ -1,0 +1,24 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn verify sonar:sonar
+          -Dsonar.projectKey=mafeozik_sonar-demo
+          -Dsonar.organization=mafeozik
+          -Dsonar.host.url=https://sonarcloud.io
