@@ -18,7 +18,8 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn verify sonar:sonar
-          -Dsonar.projectKey=mafeozik_sonar-demo
-          -Dsonar.organization=mafeozik
-          -Dsonar.host.url=https://sonarcloud.io
+        run: |
+          mvn verify sonar:sonar \
+            -Dsonar.projectKey=mafeozik_sonar-demo \
+            -Dsonar.organization=mafeozik \
+            -Dsonar.host.url=https://sonarcloud.io
