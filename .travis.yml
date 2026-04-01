@@ -1,4 +1,5 @@
 language: java
+
 jdk:
   - openjdk11
 
@@ -9,9 +10,13 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
-  - mvn verify sonar:sonar
-      -Dsonar.projectKey=mafeozik_sonar-demo
-      -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+  - mvn verify sonar:sonar \
+    -Dsonar.projectKey=mafeozik_sonar-demo \
+    -Dsonar.coverage.jacoco.xmlReportPaths=\
+     target/site/jacoco/jacoco.xml
+
+after_success:
+  - mvn coveralls:report
 
 cache:
   directories:
